@@ -12,7 +12,7 @@
 	<artifactId>portfolioapi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>portfolioapi</name>
-	<description>Rest API for Portfolio AP 1 7380</description>
+	<description>Rest API for Portfolio AP </description>
 	<properties>
 		<java.version>11</java.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
