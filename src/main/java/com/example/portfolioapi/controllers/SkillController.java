@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 @CrossOrigin("*")
 @RestController
@@ -48,18 +49,15 @@ public class SkillController {
             return ResponseEntity.badRequest().build();
         }
     }
-
-    /*@DeleteMapping("/{id}")
-    public ResponseEntity eliminarPorId(@PathVariable(value = "id") int id) {
-        ResponseEntity response = null;
-        if(skillService.getById(id) == null) {
-            response = new ResponseEntity(HttpStatus.NOT_FOUND);
+   
+    @DeleteMapping("/{id}")
+    public ResponseEntity<SkillModel> delete(@PathVariable int id) {
+        boolean ok = skillService.delete(id);
+        if (ok) {
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.internalServerError().build();
         }
-        else{
-            skillService.delete(id);
-            response= ResponseEntity.ok("SE ELIMINÓ LA EDUCACIÓN CON ID " + id);
-        }
-        return response;
-    }*/
-
+    }
+   
 }

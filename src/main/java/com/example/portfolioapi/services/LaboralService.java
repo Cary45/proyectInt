@@ -37,6 +37,10 @@ public class LaboralService {
     public LaboralModel save(LaboralModel laboral) {
         return expeRepo.save(laboral); // crea o actualiza
     }
+
+    public boolean delete(int id) {
+        return false;
+    }
     
     //public void delete(long id){
     //    expeRepo.deleteById(id);

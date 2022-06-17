@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 @CrossOrigin("*")
 @RestController
@@ -49,18 +50,15 @@ public class EducacionController {
             return ResponseEntity.badRequest().build();
         }
     }
-
-    //@DeleteMapping("/{id}")
-    //public ResponseEntity eliminarPorId(@PathVariable(value = "id") int id) {
-    //    ResponseEntity response = null;
-    //    if(educacionService.getById(id) == null) {
-    //        response = new ResponseEntity(HttpStatus.NOT_FOUND);
-    //    }
-    //    else{
-    //        educacionService.delete(id);
-    //        response= ResponseEntity.ok("SE ELIMINÓ LA EDUCACIÓN CON ID " + id);
-    //    }
-    //    return response;
-    //}
+    @DeleteMapping("/{id}")
+    public ResponseEntity<EducacionModel> delete(@PathVariable int id) {
+        boolean ok = educacionService.delete(id);
+        if (ok) {
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+ 
 
 }

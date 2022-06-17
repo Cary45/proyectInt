@@ -32,7 +32,7 @@ public class SkillServices {
         return skillRepo.save(skill); // crear o actualizar
     }
 
-    public void delete(int id) {
+    public boolean delete(int id) {
         skillRepo.deleteById(id);
     }
 

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 @CrossOrigin("*")
 @RestController
@@ -49,20 +50,14 @@ public class LaboralController {
             return ResponseEntity.badRequest().build();
         }
     }
-
-    /*
     @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable Integer id){
-        ResponseEntity response = null;
-        if(laboralService.getById(id) == null) {
-            response = new ResponseEntity(HttpStatus.NOT_FOUND); // 404 not found se podria cambiar por un mensaje personalizado?
+    public ResponseEntity<LaboralModel> delete(@PathVariable int id) {
+        boolean ok = laboralService.delete(id);
+        if (ok) {
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.internalServerError().build();
         }
-        else{
-            laboralService.delete(id);
-            response= ResponseEntity.ok("Se eliminó la persona con Id " + id);
-        }
-        return response;
     }
-
-    */
+   
 }
