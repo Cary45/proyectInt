@@ -34,6 +34,7 @@ public class SkillServices {
 
     public boolean delete(int id) {
         skillRepo.deleteById(id);
+        return false;
     }
 
 }

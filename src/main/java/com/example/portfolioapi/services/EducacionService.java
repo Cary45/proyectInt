@@ -35,6 +35,7 @@ public class EducacionService {
     }
     public boolean delete(int id) {
         educacionRepo.deleteById(id);
+        return false;
     }
 
 }

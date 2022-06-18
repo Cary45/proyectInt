@@ -40,5 +40,6 @@ public class PersonaService {
 
     public boolean delete(int id) {
         personaRepo.deleteById(id);
+        return false;
     }
 }
