@@ -22,14 +22,14 @@ public class RedesModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //@Column(unique = true, nullable = false)
-    private int idred;
+    private int idredes;
     private String nombre;
     private String url;
     private String fotourl;
     private int persona;
 
-    public RedesModel(int idred, String nombre, String url, String fotourl, int persona) {
-        this.idred = idred;
+    public RedesModel(int idredes, String nombre, String url, String fotourl, int persona) {
+        this.idredes = idredes;
         this.nombre = nombre;
         this.url = url;
         this.fotourl = fotourl;
@@ -49,11 +49,11 @@ public class RedesModel {
     
 
     public int getIdred() {
-        return this.idred;
+        return this.idredes;
     }
 
     public void setIdred(int idred) {
-        this.idred = idred;
+        this.idredes = idred;
     }
 
     public String getNombre() {
@@ -92,7 +92,7 @@ public class RedesModel {
     @Override
     public String toString() {
         return "{" +
-            " idred='" + getIdred() + "'" +
+            " idredes='" + getIdred() + "'" +
             ", nombre='" + getNombre() + "'" +
             ", url='" + getUrl() + "'" +
             ", fotourl='" + getFotourl() + "'" +
